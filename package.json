@@ -1,0 +1,22 @@
+{
+  "name": "grunt-custom-task",
+  "version": "1.0.0",
+  "description": "Practice code for https://www.youtube.com/watch?v=ByLnV3HMyuE",
+  "main": "grunt",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/junk-o-suda/grunt-custom-task"
+  },
+  "author": "Sudaraka Wijesinghe <sudaraka@sudaraka.org> (http://sudaraka.org/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/junk-o-suda/grunt-custom-task/issues"
+  },
+  "homepage": "https://github.com/junk-o-suda/grunt-custom-task",
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  }
+}
