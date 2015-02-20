@@ -2,7 +2,12 @@ module.exports = function(g) {
     'use strict';
 
     g.initConfig({
+        troll: {
+            target1: {}
+        }
     });
 
-    g.registerTask('default', []);
+    g.task.loadTasks('./tasks');
+
+    g.registerTask('default', ['troll']);
 };
