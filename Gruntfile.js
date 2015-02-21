@@ -3,7 +3,16 @@ module.exports = function(g) {
 
     g.initConfig({
         troll: {
-            target1: {}
+            linux: {
+                awesome: true
+            }
+        },
+        osdetect: {
+            run: {
+                map: {
+                    linux: 'troll:linux'
+                }
+            }
         }
     });
 
