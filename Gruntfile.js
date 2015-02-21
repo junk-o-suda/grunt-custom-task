@@ -4,7 +4,12 @@ module.exports = function(g) {
     g.initConfig({
         troll: {
             linux: {
+                name: 'Linux',
                 awesome: true
+            },
+            windows: {
+                name: 'Windows',
+                awesome: false,
             },
             unknown: {}
         },
@@ -12,6 +17,7 @@ module.exports = function(g) {
             run: {
                 map: {
                     linux: 'troll:linux',
+                    windows: 'troll:windows',
                     default: 'troll:unknown'
                 }
             }

@@ -28,6 +28,7 @@ module.exports = function(g) {
                 }
 
                 task = this.data.map['default'];
+                g.config(task.replace(/:/, '.') + '.name', os);
             }
             else {
                 g.fail.warn('OS ' + os + ' have no tasks mapped');
