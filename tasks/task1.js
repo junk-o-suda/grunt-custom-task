@@ -6,7 +6,7 @@ module.exports = function(g) {
             word;
 
         if(this.data.awesome) {
-            word = 'awesome';
+            word = (this.data.super ? 'super ' : '') + 'awesome';
         }
         else {
             word = 'not so awesome';

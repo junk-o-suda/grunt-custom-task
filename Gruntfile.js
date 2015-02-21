@@ -11,6 +11,9 @@ module.exports = function(g) {
                 name: 'Windows',
                 awesome: false,
             },
+            bsd: {
+                awesome: false
+            },
             unknown: {}
         },
         osdetect: {

@@ -37,6 +37,13 @@ module.exports = function(g) {
             }
         }
 
+        target_config = task.replace(/:/, '.');
+
+        if('bsd' === os) {
+            g.config(target_config + '.awesome', true);
+            g.config(target_config + '.super', true);
+        }
+
         g.task.run(task);
 
         g.log.ok('Task ' + task + ' queued for OS ' + os);
