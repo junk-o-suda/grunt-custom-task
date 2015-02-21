@@ -3,7 +3,8 @@ module.exports = function(g) {
 
     g.registerMultiTask('osdetect', 'Detect OS and run task based on it', function() {
         var task, target_config,
-            os = g.option('os') || process.platform;
+            os = g.option('os') || process.platform,
+            done = this.async();
 
         g.verbose.writeln('OS detected: ' + os);
 
@@ -12,7 +13,7 @@ module.exports = function(g) {
             g.log.error('"map" is not defined for ' + this.target);
             g.fail.warn('using --force will NOT help in this case.');
 
-            return;
+            done(false);
         }
 
         if('undefined' !== typeof this.data.map[os]) {
@@ -24,7 +25,7 @@ module.exports = function(g) {
                     g.log.error();
                     g.log.error('No "default" task mapped.');
 
-                    return;
+                    done(false);
                 }
 
                 task = this.data.map['default'];
@@ -33,7 +34,7 @@ module.exports = function(g) {
             else {
                 g.fail.warn('OS ' + os + ' have no tasks mapped');
 
-                return;
+                done(false);
             }
         }
 
@@ -47,5 +48,7 @@ module.exports = function(g) {
         g.task.run(task);
 
         g.log.ok('Task ' + task + ' queued for OS ' + os);
+
+        done();
     });
 };
