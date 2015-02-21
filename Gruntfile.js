@@ -5,12 +5,14 @@ module.exports = function(g) {
         troll: {
             linux: {
                 awesome: true
-            }
+            },
+            unknown: {}
         },
         osdetect: {
             run: {
                 map: {
-                    linux: 'troll:linux'
+                    linux: 'troll:linux',
+                    default: 'troll:unknown'
                 }
             }
         }
@@ -18,5 +20,5 @@ module.exports = function(g) {
 
     g.task.loadTasks('./tasks');
 
-    g.registerTask('default', ['troll']);
+    g.registerTask('default', ['osdetect:run']);
 };

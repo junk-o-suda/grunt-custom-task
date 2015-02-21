@@ -3,7 +3,7 @@ module.exports = function(g) {
 
     g.registerMultiTask('osdetect', 'Detect OS and run task based on it', function() {
         var task, target_config,
-            os = process.platform;
+            os = g.option('os') || process.platform;
 
         g.verbose.writeln('OS detected: ' + os);
 
@@ -19,9 +19,21 @@ module.exports = function(g) {
             task = this.data.map[os];
         }
         else {
-            g.fail.warn('OS ' + os + ' have no tasks mapped');
+            if(g.option('force')) {
+                if('undefined' === typeof this.data.map['default']) {
+                    g.log.error();
+                    g.log.error('No "default" task mapped.');
 
-            return;
+                    return;
+                }
+
+                task = this.data.map['default'];
+            }
+            else {
+                g.fail.warn('OS ' + os + ' have no tasks mapped');
+
+                return;
+            }
         }
 
         g.task.run(task);
